@@ -1,7 +1,10 @@
 # ITP404 Final Project Proposal
 
 [Surge](https://arjunvis-final.surge.sh)
+
 [Heroku](https://final-project-arjunv98.herokuapp.com/)
+
+[YouTube](https://youtu.be/Uul6cRfXQfA)
 
 ## 1) Problem
 
