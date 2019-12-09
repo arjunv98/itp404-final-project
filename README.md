@@ -1,5 +1,8 @@
 # ITP404 Final Project Proposal
 
+[Surge](#)
+[Heroku](https://final-project-arjunv98.herokuapp.com/)
+
 ## 1) Problem
 
 This app aims to help people plan out non-driving trips with multiple stops. It will estimate the prices of tickets for transportation between multiple locations (ie. Los Angeles -> London -> Rome -> Los Angeles) with given days of travel.
