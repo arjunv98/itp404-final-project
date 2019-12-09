@@ -14,6 +14,7 @@ export default class MyTripsPage extends React.Component {
 
   async componentDidMount() {
     let trips = await getTrips();
+    console.log(trips);
 
     this.setState({ trips, loading: false });
   }
@@ -34,7 +35,11 @@ export default class MyTripsPage extends React.Component {
               return (
                 <tr key={i}>
                   <td>{trip.title}</td>
-                  <td>{trip.stops.length}</td>
+                  {trip.stops.length !== undefined ? (
+                    <td>{trip.stops.length}</td>
+                  ) : (
+                    <td>0</td>
+                  )}
                   <td>
                     <Nav.Link href={`/trips/${trip.id}`}>Details</Nav.Link>
                   </td>

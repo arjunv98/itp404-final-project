@@ -8,6 +8,7 @@ export default class SearchPage extends React.Component {
     this.state = {
       query: "",
       loading: true,
+      searched: false,
       airports: {},
       results: []
     };
@@ -31,13 +32,14 @@ export default class SearchPage extends React.Component {
       return city.city.toUpperCase().includes(this.state.query.toUpperCase());
     });
 
-    this.setState({ results });
+    this.setState({ results, searched: true });
     console.log(this.state.results);
   };
 
   render() {
     return (
       <Container>
+        <h1>Search for Cities</h1>
         <Form>
           <Row>
             <Col md="9">
@@ -52,26 +54,32 @@ export default class SearchPage extends React.Component {
             </Col>
           </Row>
         </Form>
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>City</th>
-              <th>Details Page</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.results.map((city, i) => {
-              return (
-                <tr key={i}>
-                  <td>{city.city}</td>
-                  <td>
-                    <Nav.Link href={`/cities/${city.code}`}>Details</Nav.Link>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </Table>
+        {this.state.results.length > 0 ? (
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>City</th>
+                <th>Details Page</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.results.map((city, i) => {
+                return (
+                  <tr key={i}>
+                    <td>{city.city}</td>
+                    <td>
+                      <Nav.Link href={`/cities/${city.code}`}>Details</Nav.Link>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        ) : this.state.searched ? (
+          <h2>No results found</h2>
+        ) : (
+          <br />
+        )}
       </Container>
     );
   }

@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
 import MyTripsPage from "./MyTripsPage";
+import CreateTrip from "./CreateTrip";
+import CreateStop from "./CreateStop";
 import TripDetailsPage from "./TripDetailsPage";
 import CityDetailsPage from "./CityDetailsPage";
 import SearchPage from "./SearchPage";
@@ -20,9 +22,14 @@ export default class App extends React.Component {
           <Nav.Item>
             <Nav.Link href={`/search`}>Search for Cities</Nav.Link>
           </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href={`/trips/create`}>Create a Trip</Nav.Link>
+          </Nav.Item>
         </Nav>
         <Switch>
           <Route path="/" exact={true} component={MyTripsPage} />
+          <Route path="/trips/create" component={CreateTrip} />
+          <Route path="/trips/:id/stops/create" component={CreateStop} />
           <Route path="/trips/:id" component={TripDetailsPage} />
           <Route path="/cities/:id" component={CityDetailsPage} />
           <Route path="/search" exact={true} component={SearchPage} />

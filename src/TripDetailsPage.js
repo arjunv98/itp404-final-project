@@ -49,12 +49,14 @@ export default class TripDetailsPage extends React.Component {
         <Row>
           <Col md="9"></Col>
           <Col>
-            <Button>Add stop</Button>
+            <Button href={`/trips/${this.state.id}/stops/create`}>
+              Add stop
+            </Button>
           </Col>
         </Row>
         {this.state.loading ? (
           <Loading />
-        ) : (
+        ) : this.state.trip.stops.length > 0 ? (
           <Timeline lineColor="orange">
             {this.state.trip.stops.map((stop, i) => {
               let airport = this.state.airports.find(airport => {
@@ -87,6 +89,8 @@ export default class TripDetailsPage extends React.Component {
               );
             })}
           </Timeline>
+        ) : (
+          <h1>No stops! Click to add some</h1>
         )}
       </Container>
     );
