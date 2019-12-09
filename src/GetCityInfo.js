@@ -1,4 +1,5 @@
-const API = "http://localhost:8000";
+const TEST_API = "http://localhost:8000";
+const API = "https://final-project-arjunv98.herokuapp.com";
 
 export async function getTrips() {
   let response = await fetch(`${API}/api/trips`, { method: "GET" });
